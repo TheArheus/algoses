@@ -2,8 +2,29 @@ Find the Prefix Common Array of Two Arrays
 ```
 class Solution {
 public:
-    vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B) {
-		std::unordered_map<int, int> inds;        
+    vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B)
+    {
+        std::vector<int> commons(51, 0);
+        std::vector<int> result;
+        int common = 0;
+        for(int i = 0; i < A.size(); i++)
+        {
+            int val_a = A[i];
+            int val_b = B[i];
+            commons[val_a]++;
+            commons[val_b]++;
+            if(val_a == val_b)
+			{
+				common++;
+			}
+			else
+			{
+				if(commons[val_a] >= 2) common++;
+				if(commons[val_b] >= 2) common++;
+			}
+            result.push_back(common);
+        }
+        return result;
     }
 };
 ```
