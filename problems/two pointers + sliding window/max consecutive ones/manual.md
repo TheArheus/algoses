@@ -4,15 +4,15 @@
 class Solution 
 {
 public:
-    int findMaxConsecutiveOnes(vector<int>& nums) // [1,1,0,1,1,1]
+    int findMaxConsecutiveOnes(vector<int>& nums)
     {
         int result = 0;
         int l = 0;
-        int r = 2;
+        int r = 0;
         while(l < nums.size())
         {
-            while(r + 1 < nums.size() && nums[r + 1] == nums[r]) r++; // true, true, false
-            result = std::max(result, r - l + 1);
+            while(r + 1 < nums.size() && nums[r + 1] == nums[r]) r++;
+            if(nums[l]) result = std::max(result, r - l + 1);
             r += 1;
             l  = r;
         }

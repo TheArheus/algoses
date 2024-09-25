@@ -3,13 +3,13 @@
 class Solution 
 {
 public:
-    void moveZeroes(vector<int>& nums) // [1,3,12,3,12]
+    void moveZeroes(vector<int>& nums)
     {
-        int p1 = 0; // 2
-        int p2 = 0; // 4
-        while(p2 < nums.size()) // true, true, true, true
+        int p1 = 0;
+        int p2 = 0;
+        while(p2 < nums.size())
         {
-            if(nums[p2]) // false, true, false, true, true
+            if(nums[p2])
             {
                 nums[p1] = nums[p2];
                 p1++;
