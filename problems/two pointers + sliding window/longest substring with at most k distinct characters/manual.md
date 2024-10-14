@@ -4,7 +4,7 @@
 class Solution
 {
 public:
-    int Get(std::string s)
+    int lengthOfLongestSubstringKDistinct(std::string s, int k)
     {
         int maxLength = 0;
         int l = 0;
@@ -13,7 +13,7 @@ public:
         while(r < s.length())
         {
             charCount[s[r]]++;
-            while(charCount.size() > 2)
+            while(charCount.size() > k)
             {
                 charCount[s[l]]--;
                 if(charCount[s[l]] == 0) charCount.erase(s[l]);
@@ -24,5 +24,4 @@ public:
         }
         return maxLength;
     }
-};
 ```
