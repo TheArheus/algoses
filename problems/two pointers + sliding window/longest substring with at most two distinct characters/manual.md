@@ -1,6 +1,3 @@
-159. Longest substring with at most two distinct characters
-```
-#include <algorithm>
 class Solution
 {
 public:
@@ -15,11 +12,11 @@ public:
             charPos[s[r]] = r;
             if(charPos.size() > 2)
             {
-				int leftMost = s.length();
-				for(const auto& [ch, pos] : charPos)
-				{
-					leftMost = std::min(leftMost, pos);
-				}
+                int leftMost = s.length();
+                for(const auto& [ch, pos] : charPos)
+                {
+                    leftMost = std::min(leftMost, pos);
+                }
                 charPos.erase(s[leftMost]);
                 l = leftMost + 1;
             }
@@ -29,4 +26,3 @@ public:
         return maxLength;
     }
 };
-```
